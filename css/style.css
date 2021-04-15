@@ -7,12 +7,13 @@ body {
 }
 
 main {
-  width: 100%;
+  width: 304px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding: 16px 0 20px;
   background-color: #ffffff;
+  border-radius: 10px;
 }
 
 .visually-hidden {
@@ -33,7 +34,7 @@ main {
 }
 
 .description {
-  padding: 0 20px;
+  padding-left: 20px;
 }
 
 h1 {
@@ -46,24 +47,25 @@ h1 {
 
 .description-list {
   margin: 0;
-  margin-bottom: 18px;
+  margin-bottom: 19px;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-row-gap: 20px;
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: column;
+  grid-row-gap: 11px;
 }
 
 .description-item {
   list-style: none;
 }
 
-.description-item:nth-of-type(2n) {
+.description-item:nth-of-type(n + 4) {
   padding-left: 12px;
 }
 
-.description-item:nth-of-type(3) {
+/* .description-item:nth-of-type(3) {
   order: 1;
-}
+} */
 
 .description-text {
   margin: 0;
@@ -85,10 +87,11 @@ h1 {
   position: relative;
   /* width: 184px; */
   margin-bottom: 8px;
-  padding: 6px 18px 6px 38px;
+  padding: 6px 18px 6px 36px;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
+  letter-spacing: 0.2px;
   color: #64b851;
   background: #f2faf0;
   border-radius: 22px;
@@ -135,7 +138,7 @@ h1 {
 }
 
 .shower {
-  width: 238px;
+  width: 245px;
 }
 
 .shower-top,
@@ -168,22 +171,25 @@ h1 {
 }
 
 .select-button {
-  position: relative;
-  padding: 12px 50px 12px 74px;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  color: #383736;
+  padding: 12px 53px 12px 77px;
   background: #fac62d;
   border-radius: 6px;
   border: none;
 }
 
-.select-button::before {
+.select-button span {
+  position: relative;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #383736;
+}
+
+.select-button span::before {
   position: absolute;
   content: "";
-  top: 16px;
-  left: 55px;
+  top: 2px;
+  left: -20px;
   width: 12px;
   height: 12px;
   background-image: url("../image/key.svg");
@@ -198,6 +204,19 @@ h1 {
   }
 
   main {
-    grid-template-columns: max-content, 1fr;
+    padding: 0 calc(50vw - 370px);
+  }
+
+  .main-image {
+    padding-top: 10px;
+  }
+
+  .select {
+    width: 100%;
+    margin: 0 32px;
+  }
+
+  .select-button {
+    padding: 12px 241px 12px 266px;
   }
 }
