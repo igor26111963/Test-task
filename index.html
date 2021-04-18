@@ -2,15 +2,20 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="HandheldFriendly" content="true"/>
   <title>Test</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <main>
+<body class="body">
+  <main class="main">
+    <button class="main-button" type="button" aria-label="Закрыть"></button>
+    <picture>
+      <source media="(min-width: 768px)" srcset="image/project-768.png"/>
       <img class="main-image" src="image/project.png" alt="Проект квартры" width="178" height="178">
+    </picture>
       <section class="description">
         <h1>2-к квартира</h1>
         <ul class="description-list">
@@ -47,7 +52,7 @@
         <div class="shower">
             <p class="shower-top">Ваша цена по брони до <span>19 сентября</span></p>
             <span class="shower-span">3 312 666 Р</span>
-            <p class="shower-bottom">Текущая цена у застройщика дороже на <span>324 825 Р</span></p>
+            <p class="shower-bottom">Текущая цена у застройщика<br> дороже на <span>324 825 Р</span></p>
         </div>
         <button class="select-button" type="submit"><span>Выбрать для покупки</span></button>
       </section>

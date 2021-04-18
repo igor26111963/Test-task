@@ -1,4 +1,12 @@
-body {
+* {
+  box-sizing: border-box;
+}
+
+/* * {
+  outline: 1px solid red;
+} */
+
+.body {
   font-family: "Roboto", sans-serif;
   max-width: 320px;
   margin: 0 auto;
@@ -6,14 +14,10 @@ body {
   background-color: #e5e5e5;
 }
 
-main {
-  width: 304px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 16px 0 20px;
-  background-color: #ffffff;
-  border-radius: 10px;
+p,
+ul {
+  margin: 0;
+  padding: 0;
 }
 
 .visually-hidden {
@@ -29,27 +33,53 @@ main {
   overflow: hidden;
 }
 
-.main-image {
-  text-align: center;
+.main {
+  padding: 16px 15px 20px 20px;
+  display: grid;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.description {
-  padding-left: 20px;
+.main-button {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 0;
+  height: 0;
+  top: 10px;
+  left: 254px;
+}
+
+.main-button::before {
+  z-index: 99;
+  position: absolute;
+  content: "";
+  width: 24px;
+  height: 24px;
+  top: 0;
+  left: 0;
+  background-image: url("../image/cross.svg");
+  background-repeat: no-repeat;
+}
+
+.main-image {
+  margin-left: 43px;
+  margin-top: -5px;
 }
 
 h1 {
   margin: 0;
-  padding: 16px 0;
+  padding: 12px 0 16px;
   font-weight: 700;
   font-size: 20px;
   line-height: 28px;
 }
 
 .description-list {
-  margin: 0;
   margin-bottom: 19px;
-  padding: 0;
   display: grid;
+  grid-template-columns: repeat(2, 130px);
   grid-template-rows: repeat(3, 1fr);
   grid-auto-flow: column;
   grid-row-gap: 11px;
@@ -59,13 +89,9 @@ h1 {
   list-style: none;
 }
 
-.description-item:nth-of-type(n + 4) {
-  padding-left: 12px;
+.description-item:nth-child(n + 4) {
+  padding-left: 14px;
 }
-
-/* .description-item:nth-of-type(3) {
-  order: 1;
-} */
 
 .description-text {
   margin: 0;
@@ -85,8 +111,7 @@ h1 {
 
 .button-first {
   position: relative;
-  /* width: 184px; */
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   padding: 6px 18px 6px 36px;
   font-weight: 500;
   font-size: 12px;
@@ -101,8 +126,8 @@ h1 {
 .button-first::before {
   position: absolute;
   content: "";
-  left: 16px;
-  top: 5px;
+  left: 12px;
+  top: 6px;
   width: 16px;
   height: 16px;
   background-image: url("../image/check.svg");
@@ -111,11 +136,12 @@ h1 {
 
 .button-second {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   padding: 6px 16px 6px 36px;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
+  letter-spacing: 0.23px;
   color: #eb4b51;
   background: #faf0f0;
   border-radius: 22px;
@@ -125,19 +151,21 @@ h1 {
 .button-second::before {
   position: absolute;
   content: "";
-  left: 16px;
-  top: 8px;
+  left: 12px;
+  top: 6px;
   width: 16px;
   height: 16px;
-  background-image: url("../image/cross.svg");
+  background-image: url("../image/cross-red.svg");
   background-repeat: no-repeat;
 }
 
 .select {
+  width: 315px;
   border-top: 1px solid #f0eeeb;
 }
 
 .shower {
+  padding: 20px 0 16px;
   width: 245px;
 }
 
@@ -147,6 +175,10 @@ h1 {
   font-size: 14px;
   line-height: 20px;
   color: #989691;
+}
+
+.shower-bottom {
+  padding-top: 13px;
 }
 
 .shower-top span {
@@ -171,7 +203,7 @@ h1 {
 }
 
 .select-button {
-  padding: 12px 53px 12px 77px;
+  padding: 12px 52px 12px 74px;
   background: #fac62d;
   border-radius: 6px;
   border: none;
@@ -182,6 +214,7 @@ h1 {
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
+  letter-spacing: 0.22px;
   color: #383736;
 }
 
@@ -197,18 +230,31 @@ h1 {
 }
 
 @media (min-width: 768px) {
-  body {
-    max-width: 768px;
+  .body {
+    min-width: 768px;
     margin: 0 auto;
     padding: 40px 28px;
   }
 
-  main {
-    padding: 0 calc(50vw - 370px);
+  .main {
+    grid-template-columns: 177px 1fr 24px;
+    grid-template-rows: repeat(2, 1fr);
   }
 
   .main-image {
     padding-top: 10px;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .main-button {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+  }
+
+  .description {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
   }
 
   .select {
@@ -218,5 +264,29 @@ h1 {
 
   .select-button {
     padding: 12px 241px 12px 266px;
+  }
+
+  @media (min-width: 920px) {
+    .body {
+      min-width: 920px;
+    }
+
+    .main {
+      grid-template-columns: 177px 1fr 1fr 24px;
+      grid-template-rows: 1fr;
+    }
+
+    .main-button {
+      grid-column: 4 / 5;
+    }
+
+    .select {
+      margin: 0;
+      grid-column: 3 / 4;
+    }
+
+    .select-button {
+      padding: 12px 52px 12px 74px;
+    }
   }
 }
